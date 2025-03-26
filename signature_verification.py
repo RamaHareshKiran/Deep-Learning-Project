@@ -26,6 +26,7 @@ def build_feature_extractor(model_name):
     
     base_model.trainable = False
     x = GlobalAveragePooling2D()(base_model.output)
+    print(base_model.summary())
     return Model(inputs=base_model.input, outputs=x)
 
 feature_extractor_resnet = build_feature_extractor('resnet50')
